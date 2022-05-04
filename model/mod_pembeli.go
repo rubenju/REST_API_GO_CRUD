@@ -19,7 +19,7 @@ func GetPembeli(db *sql.DB) ([]entity.Pembeli, error) {
 	hasil := []entity.Pembeli{}
 	for rows.Next() {
 		data := entity.Pembeli{}
-		error := rows.Scan(&data.Id, &data.Nama, &data.Jk, &data.No_telp, &data.Alamat)
+		error := rows.Scan(&data.Id, &data.Nama, &data.Jk, &data.No_telp, &data.Alamat, &data.Foto)
 		if error != nil {
 			return []entity.Pembeli{}, error
 		}
@@ -30,9 +30,9 @@ func GetPembeli(db *sql.DB) ([]entity.Pembeli, error) {
 }
 
 func AddPembeli(db *sql.DB, data entity.Pembeli) (bool, error) {
-	insertsql := "SELECT create_pembeli($1, $2, $3, $4, $5)"
+	insertsql := "SELECT create_pembeli($1, $2, $3, $4, $5, $6)"
 
-	_, error := db.Query(insertsql, data.Id, data.Nama, data.Jk, data.No_telp, data.Alamat)
+	_, error := db.Query(insertsql, data.Id, data.Nama, data.Jk, data.No_telp, data.Alamat, data.Foto)
 
 	if error != nil {
 		return false, error
@@ -42,9 +42,9 @@ func AddPembeli(db *sql.DB, data entity.Pembeli) (bool, error) {
 }
 
 func UpdatePembeli(db *sql.DB, data entity.Pembeli) (bool, error) {
-	updatesql := "SELECT update_pembeli($1, $2, $3, $4, $5)"
+	updatesql := "SELECT update_pembeli($1, $2, $3, $4, $5, $6)"
 
-	_, error := db.Query(updatesql, data.Id, data.Nama, data.Jk, data.No_telp, data.Alamat)
+	_, error := db.Query(updatesql, data.Id, data.Nama, data.Jk, data.No_telp, data.Alamat, data.Foto)
 
 	if error != nil {
 		return false, error
