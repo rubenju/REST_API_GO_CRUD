@@ -19,7 +19,7 @@ func GetTransaksi(db *sql.DB) ([]entity.TransaksiJoin, error) {
 	hasil := []entity.TransaksiJoin{}
 	for rows.Next() {
 		data := entity.TransaksiJoin{}
-		error := rows.Scan(&data.Id_transaksi, &data.Nama_barang, &data.Harga, &data.Nama_pembeli, &data.Tanggal)
+		error := rows.Scan(&data.Id_transaksi, &data.Nama_barang, &data.Harga, &data.Nama_pembeli, &data.Tanggal, &data.Keterangan)
 		if error != nil {
 			return []entity.TransaksiJoin{}, error
 		}
