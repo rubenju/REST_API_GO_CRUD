@@ -23,6 +23,9 @@ func GetTransaksi(db *sql.DB) ([]entity.TransaksiJoin, error) {
 		if error != nil {
 			return []entity.TransaksiJoin{}, error
 		}
+		if len(data.Tanggal) >= 10 {
+			data.Tanggal = data.Tanggal[:10]
+		}
 		hasil = append(hasil, data)
 	}
 

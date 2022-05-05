@@ -5,6 +5,6 @@ type TransaksiJoin struct {
 	Nama_barang  string `json:"p_nama_barang"`
 	Harga        string `json:"p_harga"`
 	Nama_pembeli string `json:"p_nama_pembeli"`
-	Tanggal      string `json:"p_tanggal"`
+	Tanggal      string `json:"p_tanggal" form:"tanggal"`
 	Keterangan   string `json:"p_keterangan"`
 }
