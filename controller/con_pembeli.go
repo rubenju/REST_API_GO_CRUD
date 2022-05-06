@@ -35,6 +35,7 @@ func AddPembeli(ctx echo.Context) error {
 	pembeli.Jk = ctx.FormValue("jk")
 	pembeli.No_telp = ctx.FormValue("no_telp")
 	pembeli.Alamat = ctx.FormValue("alamat")
+	pembeli.Foto = ctx.FormValue("foto")
 
 	_, err := model.AddPembeli(db, pembeli)
 	if err != nil {
@@ -58,6 +59,7 @@ func UpdatePembeli(ctx echo.Context) error {
 	pembeli.Jk = ctx.FormValue("jk")
 	pembeli.No_telp = ctx.FormValue("no_telp")
 	pembeli.Alamat = ctx.FormValue("alamat")
+	pembeli.Foto = ctx.FormValue("foto")
 
 	_, err = model.UpdatePembeli(db, pembeli)
 	if err != nil {
